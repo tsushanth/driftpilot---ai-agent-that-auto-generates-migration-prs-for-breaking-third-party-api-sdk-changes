@@ -54,7 +54,8 @@ export async function createLocalPr(repoDir: string, change: BreakingChange): Pr
   await git.add('.');
   const diff = await git.diff(['HEAD']);
 
-  const description = await generatePrDescription({ change, matches, branchName, diff });
+  const relativeMatches = matches.map((m) => ({ ...m, filePath: path.relative(scratchDir, m.filePath) }));
+  const description = await generatePrDescription({ change, matches: relativeMatches, branchName, diff });
   await git.commit(description.title);
   const fixCommitHash = (await git.revparse(['HEAD'])).trim();
 
