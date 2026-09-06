@@ -44,6 +44,11 @@ npm run scan   # prints the detected deprecated usage in sample-repo/src/checkou
 npm run fix    # produces a branch + commit in a scratch copy, prints the diff + PR_DESCRIPTION.md path
 ```
 
+> If your shell has `NODE_ENV=production` set, plain `npm install` will
+> silently skip devDependencies (`tsx`, `vitest`, `typescript`), and the
+> commands above will fail with "command not found". Run
+> `NODE_ENV=development npm install` (or `unset NODE_ENV`) instead.
+
 Optional — get an AI-authored PR description instead of the template:
 
 ```bash
