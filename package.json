@@ -1,0 +1,24 @@
+{
+  "name": "driftpilot",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local MVP scaffold: detect breaking third-party API usage and auto-generate a migration PR artifact.",
+  "type": "module",
+  "scripts": {
+    "scan": "tsx src/cli.ts scan --repo sample-repo --changelog fixtures/changelogs/stripe-2025-06-30.json",
+    "fix": "tsx src/cli.ts fix --repo sample-repo --changelog fixtures/changelogs/stripe-2025-06-30.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.0",
+    "commander": "^12.1.0",
+    "simple-git": "^3.27.0",
+    "ts-morph": "^24.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.4"
+  }
+}

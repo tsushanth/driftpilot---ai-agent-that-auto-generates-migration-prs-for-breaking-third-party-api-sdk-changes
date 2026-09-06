@@ -1,0 +1,22 @@
+{
+  "sdk": "stripe",
+  "id": "stripe-charges-create-deprecation-2025-06-30",
+  "title": "Charges API is deprecated in favor of the Payment Intents API",
+  "sunsetDate": "2025-06-30",
+  "changelogUrl": "https://stripe.com/docs/changelog/2025-06-30",
+  "detect": {
+    "objectPath": "charges",
+    "method": "create"
+  },
+  "replacement": {
+    "objectPath": "paymentIntents",
+    "method": "create"
+  },
+  "fieldMapping": [
+    { "from": "source", "to": "payment_method" }
+  ],
+  "addFields": {
+    "confirm": true
+  },
+  "migrationNote": "stripe.charges.create is deprecated and will be removed after the sunset date. Use stripe.paymentIntents.create instead: rename the `source` field to `payment_method`, and pass `confirm: true` so the intent is confirmed and captured immediately, matching the legacy Charges behavior."
+}

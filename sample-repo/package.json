@@ -1,0 +1,9 @@
+{
+  "name": "sample-checkout-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Fixture 'customer' repo used to demo DriftPilot's detect -> codemod -> local PR pipeline.",
+  "dependencies": {
+    "stripe": "^14.0.0"
+  }
+}
